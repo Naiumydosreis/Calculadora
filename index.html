@@ -3,11 +3,38 @@
   <head>
     <meta charset="UTF-8">
     <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
   </head>  
   <body>
+    <div class="calculadora">
+        <input type="text" id="display" disabled>
+        <div class="button">
+            <button onclick="clearDisplay()">CE</button>
+            <button onclick="deleteLast()">C</button>
+            <button onclick="appendOperator('%')">%</button>
+            <button onclick="appendOperator('/')">%</button>
 
-    <h1>Calculadora</h1>
-    p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, amet inventore quis perferendis unde accusamus culpa nostrum maxime eum tenetur dignissimos quasi similique a, quo doloremque est qui, impedit nam?
+            <button onclick="appendNuumber('7')">7</button>
+            <button onclick="appendNuumber('8')">8</button>
+            <button onclick="appendNuumber('9')">9</button>
+            <button onclick="appendOperator('*')">X</button>
 
+            <button onclick="appendNuumber('4')">4</button>
+            <button onclick="appendNuumber('5')">5</button>
+            <button onclick="appendNuumber('6')">6</button>
+            <button onclick="appendOperator('-')">-</button>
+
+            <button onclick="appendNuumber('1')">1</button>
+            <button onclick="appendNuumber('2')">2</button>
+            <button onclick="appendNuumber('3')">3</button>
+            <button onclick="appendOperator('+')">+</button>
+
+            <button onclick="appendNuumber('0')" class="zero">0</button>
+            <button onclick="appenDot()">,</button>
+            <button onclick="calculateResult()" class="equal">=</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
