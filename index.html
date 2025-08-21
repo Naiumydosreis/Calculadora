@@ -7,30 +7,31 @@
   </head>  
   <body>
     <div class="calculadora">
-        <input type="text" id="display" disabled>
+        <input type="text" id="display" readonly>
         <div class="button">
             <button onclick="clearDisplay()">CE</button>
             <button onclick="deleteLast()">C</button>
             <button onclick="appendOperator('%')">%</button>
-            <button onclick="appendOperator('/')">%</button>
+            <button onclick="appendOperator('/')">÷</button>
 
-            <button onclick="appendNuumber('7')">7</button>
-            <button onclick="appendNuumber('8')">8</button>
-            <button onclick="appendNuumber('9')">9</button>
-            <button onclick="appendOperator('*')">X</button>
+            <button onclick="appendNumber('7')">7</button>
+            <button onclick="appendNumber('8')">8</button>
+            <button onclick="appendNumber('9')">9</button>
+            <button onclick="appendOperator('*')">x</button>
 
-            <button onclick="appendNuumber('4')">4</button>
-            <button onclick="appendNuumber('5')">5</button>
-            <button onclick="appendNuumber('6')">6</button>
+            <button onclick="appendNumber('4')">4</button>
+            <button onclick="appendNumber('5')">5</button>
+            <button onclick="appendNumber('6')">6</button>
             <button onclick="appendOperator('-')">-</button>
 
-            <button onclick="appendNuumber('1')">1</button>
-            <button onclick="appendNuumber('2')">2</button>
-            <button onclick="appendNuumber('3')">3</button>
+            <button onclick="appendNumber('1')">1</button>
+            <button onclick="appendNumber('2')">2</button>
+            <button onclick="appendNumber('3')">3</button>
             <button onclick="appendOperator('+')">+</button>
 
-            <button onclick="appendNuumber('0')" class="zero">0</button>
-            <button onclick="appenDot()">,</button>
+            <button onclick="toggleSign()">+/-</button>            
+            <button onclick="appendNumber('0')" class="zero">0</button>
+            <button onclick="appendDot()">,</button>
             <button onclick="calculateResult()" class="equal">=</button>
         </div>
     </div>
