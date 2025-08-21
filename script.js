@@ -1,8 +1,8 @@
+let display = document.getElementById("display");
+
 function normalize(expr) {
     return expr.replace(/,/g, '.');
 }
-
-let display = document.getElementById("display");
 
 function appendText(t) {
     const s = display.value;
@@ -11,13 +11,27 @@ function appendText(t) {
     display.value = (s === '0' || s === 'Erro') ? String(t) : s + t;
 }
 function clearDisplay() { display.value = ''; }
-function deleteLast() { display.value = display.value.slice(0, -1); }
+function deleteLast() { 
+    display.value = display.value.slice(0, -1); 
+}
 
 function appendNumber(n) {
     console.log("entrou funcao")
     appendText(n);
 }
-function appendOperator(o) { appendText(o); }
+function appendOperator(o) { 
+    let s = display.value;
+    if (!s || s === "Erro") return;
+    
+    if (/[+\-*/]$/.test(s)) {
+        display.value = s.slice(0, -1) + o;
+        return;
+    }
+
+    if (!/\d/.test(s)) return;
+    display.value += o;
+}
+
 function appendValue(v) { appendText(v); }
 
 function appendDot() {
@@ -54,18 +68,25 @@ function toggleSign() {
 }
 
 function calculate() { calculateResult(); }
+
 function calculateResult() {
     const exprRaw = display.value;
     if (!exprRaw) return;
-    console.log()
+
     let expr = exprRaw.replace(/\s+/g, '');
     if (/[*+\-/]$/.test(expr)) expr = expr.slice(0, -1);
     if (!expr) return;
 
     try {
         const result = Function('return (' + normalize(expr) + ')')(); 
-        display.value = String(result);
+        
+        if (result === Infinity || result === -Infinity) {
+             display.value = ''; 
+        } else {
+            display.value = String(result);
+        }
     } catch {
-        display.value ='Erro';
+        display.value = 'Erro';
     }
 }
+ 
